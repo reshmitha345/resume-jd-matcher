@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume JD Matcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        h1 { color: #333; }
+        input, textarea, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .result {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .missing {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 Resume - JD Matcher</h1>
+
+    <form action="/match" method="POST" enctype="multipart/form-data">
+        <label>Upload Resume (PDF):</label>
+        <input type="file" name="resume" accept=".pdf" required>
+
+        <label>Paste Job Description:</label>
+        <textarea name="jd" rows="8" 
+        placeholder="Paste the job description here..." required></textarea>
+
+        <button type="submit">Check Match Score</button>
+    </form>
+
+    {% if show_result %}
+    <div class="result">
+        <h2>Results:</h2>
+        <p>Match Score:</p>
+        <div class="score">{{ score }}%</div>
+
+        <h3 class="missing">❌ Missing Keywords:</h3>
+        <ul>
+            {% for word in missing %}
+            <li class="missing">{{ word }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+</body>
+</html>
