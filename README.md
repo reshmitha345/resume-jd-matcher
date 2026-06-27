@@ -43,10 +43,3 @@ This tool helps job seekers understand how well their resume matches a job descr
 2. Paste the job description
 3. Click Check Match Score
 4. See your match percentage and missing keywords
-
-## 👩‍💻 Developer
-
-Reshmitha B
-- GitHub: reshmitha345
-- Email: breshmitha6@gmail.com
-- LinkedIn: linkedin.com/in/reshmitha-b-a5644225b
